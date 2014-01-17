@@ -1,0 +1,16 @@
+{% set url = path('victoire_cms_page_show', {'url' : item.url }) %}
+
+<tr>
+    <th>
+        <div>
+            <span>
+                {{item.publishedAt ? item.publishedAt|date("d/m/Y") : '--'}}
+            </span>
+        </div>
+    </th>
+    <td>
+        <a href="{{ url }}">
+            {{item.title}}
+        </a>
+    </td>
+</tr>

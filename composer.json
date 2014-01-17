@@ -18,8 +18,8 @@
         "lexik/form-filter-bundle": "dev-master"
     },
     "autoload": {
-        "psr-0": { "Victoire\\ArticleBundle": "" }
+        "psr-0": { "Victoire\\ArticleListBundle": "" }
     },
     "minimum-stability": "dev",
-    "target-dir": "Victoire/ArticleBundle"
+    "target-dir": "Victoire/ArticleListBundle"
 }

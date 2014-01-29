@@ -59,7 +59,7 @@ protected $container;
         $articles = $filterBuilder->getQuery()->execute();
 
         return $this->container->get('victoire_templating')->render(
-            "VictoireArticleListBundle:Widget:articlelist/show.html.twig",
+            "VictoireArticleListBundle::show.html.twig",
             array(
                 "articles" => $articles,
                 "widget"   => $widget
@@ -78,7 +78,7 @@ protected $container;
     {
 
         return $this->container->get('victoire_templating')->render(
-            "VictoireArticleListBundle:Widget:articlelist/edit.html.twig",
+            "VictoireArticleListBundle::edit.html.twig",
             array(
                 "widget" => $widget,
                 'form'   => $form->createView(),
@@ -116,7 +116,7 @@ protected $container;
     {
 
         return $this->container->get('victoire_templating')->render(
-            "VictoireArticleListBundle:Widget:articlelist/new.html.twig",
+            "VictoireArticleListBundle::new.html.twig",
             array(
                 "widget"          => $widget,
                 'form'            => $form->createView(),

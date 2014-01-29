@@ -3,3 +3,8 @@ victoire_cms:
         articlelist:
             class: "Victoire\\ArticleListBundle\\Entity\\WidgetArticleList"
             name: articlelist
+
+twig:
+    form:
+        resources:
+            - LexikFormFilterBundle:Form:form_div_layout.html.twig

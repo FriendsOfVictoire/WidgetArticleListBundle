@@ -38,14 +38,14 @@ class WidgetArticleList extends Widget
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="maxResults", type="integer")
+     * @ORM\Column(name="maxResults", type="integer", nullable=true)
      */
     private $maxResults;
 

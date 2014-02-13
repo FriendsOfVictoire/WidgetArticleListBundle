@@ -17,6 +17,7 @@
         {
             "head":
             [
+                "@VictoireArticleListBundle/Resources/public/Commons/less/newslisting.less",
                 "@VictoireArticleListBundle/Resources/public/vendor/lionbars/lionbars.css"
             ]
         }

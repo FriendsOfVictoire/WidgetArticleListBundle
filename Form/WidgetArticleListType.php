@@ -35,6 +35,7 @@ class WidgetArticleListType extends WidgetType
             ->add('maxResults', 'integer', array(
                 'apply_filter' => $noValidationClosure,
                 'label'        => 'widget.articlelist.form.type.maxResults.label',
+                'required'     => false
             ))
             ->add('globalLinkTitle', null, array(
                 'apply_filter' => $noValidationClosure,

@@ -49,12 +49,19 @@ protected $container;
         $filterBuilder = $this->container->get('doctrine.orm.entity_manager')
             ->getRepository('VictoireBlogBundle:Article')
             ->createQueryBuilder('article')
-            ->setMaxResults($widget->getMaxResults());
+            ->where('article.status = :status')
+            ->setParameter('status', 'published');
+
+        //If a maxResults param is passed, we add a "limit" clause
+        if ($widget->getMaxResults()) {
+            $filterBuilder->setMaxResults($widget->getMaxResults());
+        }
+
+        //web order by the publicationDate
+        $filterBuilder->orderBy('article.publishedAt', 'DESC');
 
         // build the query from the given form object
         $this->container->get('lexik_form_filter.query_builder_updater')->addFilterConditions($filterForm, $filterBuilder);
-        // // now look at the DQL =)
-        // var_dump($filterBuilder->getDql());
 
         $articles = $filterBuilder->getQuery()->execute();
 

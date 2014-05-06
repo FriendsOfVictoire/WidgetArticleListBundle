@@ -18,7 +18,7 @@
         "lexik/form-filter-bundle"            : "dev-master"
     },
     "require-dev": {
-        "victoire/cms-bundle"                 : "dev-develop",
+        "victoire/cms-bundle"                 : "dev-develop"
     },
     "autoload": {
         "psr-0": { "Victoire\\ArticleListBundle": "" }

@@ -5,8 +5,8 @@ namespace Victoire\ArticleListBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Victoire\CmsBundle\Form\EntityProxyFormType;
-use Victoire\CmsBundle\Form\WidgetType;
+use Victoire\Bundle\CoreBundle\Form\EntityProxyFormType;
+use Victoire\Bundle\CoreBundle\Form\WidgetType;
 use Lexik\Bundle\FormFilterBundle\Filter\Query\QueryInterface;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterOperands;
 
@@ -56,7 +56,7 @@ class WidgetArticleListType extends WidgetType
      */
     public function getName()
     {
-        return 'appventus_victoirecmsbundle_widgetarticlelisttype';
+        return 'appventus_victoireCoreBundle_widgetarticlelisttype';
     }
 
     /**

@@ -30,6 +30,10 @@
         <source>widget.articlelist.form.type.title.label</source>
         <target>Titre d'article</target>
       </trans-unit>
+      <trans-unit id="8f6caaaec2b6fdd2111187773c70685075d64b67" resname="widget.articlelist.new.action.label">
+        <source>widget.articlelist.new.action.label</source>
+        <target>Liste d'articles</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

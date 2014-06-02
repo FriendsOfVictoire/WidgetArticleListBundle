@@ -12,8 +12,6 @@ use Victoire\Bundle\CoreBundle\Entity\Widget;
  */
 class WidgetArticleList extends Widget
 {
-    use \Victoire\Bundle\CoreBundle\Entity\Traits\WidgetTrait;
-
     /**
      * @var string
      *

@@ -35,7 +35,7 @@ use Victoire\Bundle\CoreBundle\Widget\Managers\WidgetManagerInterface;
  * By default, the methods throws Exception to notice the developer that he should implements it owns logic for the widget
  *
  */
-class WidgetArticleListManager extends WidgetArticleListManager implements WidgetManagerInterface
+class WidgetArticleListManager extends BaseWidgetManager implements WidgetManagerInterface
 {
     /**
      * The name of the widget

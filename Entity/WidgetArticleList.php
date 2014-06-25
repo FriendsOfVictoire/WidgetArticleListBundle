@@ -1,5 +1,5 @@
 <?php
-namespace Victoire\ArticleListBundle\Entity;
+namespace Victoire\Widget\ArticleListBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Victoire\Bundle\CoreBundle\Entity\Widget;
@@ -17,35 +17,35 @@ class WidgetArticleList extends Widget
      *
      * @ORM\Column(name="global_link_title", type="string", length=255)
      */
-    private $globalLinkTitle;
+    protected $globalLinkTitle;
 
     /**
      * @var string
      *
      * @ORM\Column(name="global_link_url", type="string", length=255)
      */
-    private $globalLinkUrl;
+    protected $globalLinkUrl;
 
     /**
      * @var string
      *
      * @ORM\Column(name="global_link_label", type="string", length=255)
      */
-    private $globalLinkLabel;
+    protected $globalLinkLabel;
 
     /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
-    private $title;
+    protected $title;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="maxResults", type="integer", nullable=true)
      */
-    private $maxResults;
+    protected $maxResults;
 
     /**
      * Set title

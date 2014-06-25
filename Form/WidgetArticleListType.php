@@ -1,6 +1,6 @@
 <?php
 
-namespace Victoire\ArticleListBundle\Form;
+namespace Victoire\Widget\ArticleListBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -67,7 +67,7 @@ class WidgetArticleListType extends WidgetType
     {
         $resolver->setDefaults(array(
             'csrf_protection'   => false,
-            'data_class'        => 'Victoire\ArticleListBundle\Entity\WidgetArticleList',
+            'data_class'        => 'Victoire\Widget\ArticleListBundle\Entity\WidgetArticleList',
             'validation_groups' => array('filtering'), // avoid NotBlank() constraint-related message
             'widget'             => 'articlelist',
             'translation_domain' => 'victoire'

@@ -1,10 +1,10 @@
 <?php
 
-namespace Victoire\ArticleListBundle\Widget\Manager;
+namespace Victoire\Widget\ArticleListBundle\Widget\Manager;
 
 
-use Victoire\ArticleListBundle\Form\WidgetArticleListType;
-use Victoire\ArticleListBundle\Entity\WidgetArticleList;
+use Victoire\Widget\ArticleListBundle\Form\WidgetArticleListType;
+use Victoire\Widget\ArticleListBundle\Entity\WidgetArticleList;
 
 
 use Victoire\Bundle\CoreBundle\Widget\Managers\BaseWidgetManager;
@@ -55,7 +55,7 @@ class WidgetArticleListManager extends WidgetArticleListManager implements Widge
 //      */
 //     public function render($widget)
 //     {
-//         $filterForm = $this->container->get('form.factory')->create(new WidgetArticleListType('Article', '\Victoire\ArticleListBundle\Entity'), $widget);
+//         $filterForm = $this->container->get('form.factory')->create(new WidgetArticleListType('Article', '\Victoire\Widget\ArticleListBundle\Entity'), $widget);
 
 //         // initialize a query builder
 //         $filterBuilder = $this->container->get('doctrine.orm.entity_manager')

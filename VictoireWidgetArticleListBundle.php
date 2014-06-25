@@ -1,6 +1,6 @@
 <?php
 
-namespace Victoire\ArticleListBundle;
+namespace Victoire\Widget\ArticleListBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -9,6 +9,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  * @author Paul Andrieux
  *
  */
-class VictoireArticleListBundle extends Bundle
+class VictoireWidgetArticleListBundle extends Bundle
 {
 }

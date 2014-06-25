@@ -5,20 +5,20 @@
         {
             "victoire-edit":
             [
-                "@VictoireArticleListBundle/Resources/public/Commons/js/newslisting_edit.js"
+                "@VictoireWidgetArticleListBundle/Resources/public/Commons/js/newslisting_edit.js"
             ],
             "foot":
             [
-                "@VictoireArticleListBundle/Resources/public/vendor/lionbars/lionbars.js",
-                "@VictoireArticleListBundle/Resources/public/Commons/js/newslisting_view.js"
+                "@VictoireWidgetArticleListBundle/Resources/public/vendor/lionbars/lionbars.js",
+                "@VictoireWidgetArticleListBundle/Resources/public/Commons/js/newslisting_view.js"
             ]
          },
         "stylesheets":
         {
             "head":
             [
-                "@VictoireArticleListBundle/Resources/public/Commons/less/newslisting.less",
-                "@VictoireArticleListBundle/Resources/public/vendor/lionbars/lionbars.css"
+                "@VictoireWidgetArticleListBundle/Resources/public/Commons/less/newslisting.less",
+                "@VictoireWidgetArticleListBundle/Resources/public/vendor/lionbars/lionbars.css"
             ]
         }
     }

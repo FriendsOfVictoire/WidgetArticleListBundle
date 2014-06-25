@@ -47,42 +47,38 @@ class WidgetArticleListManager extends BaseWidgetManager implements WidgetManage
         return 'ArticleList';
     }
 
-//     /**
-//      * render the WidgetArticleList
-//      * @param Widget $widget
-//      *
-//      * @return widget show
-//      */
-//     public function render($widget)
-//     {
-//         $filterForm = $this->container->get('form.factory')->create(new WidgetArticleListType('Article', '\Victoire\Widget\ArticleListBundle\Entity'), $widget);
+    /**
+     * Get the static content of the widget
+     *
+     * @param Widget $widget
+     * @return string The static content
+     *
+     * @SuppressWarnings checkUnusedFunctionParameters
+     */
+    protected function getWidgetStaticContent(Widget $widget)
+    {
+        $filterForm = $this->container->get('form.factory')->create(new WidgetArticleListType('Article', '\Victoire\Widget\ArticleListBundle\Entity'), $widget);
 
-//         // initialize a query builder
-//         $filterBuilder = $this->container->get('doctrine.orm.entity_manager')
-//             ->getRepository('VictoireBlogBundle:Article')
-//             ->createQueryBuilder('article')
-//             ->where('article.status = :status')
-//             ->setParameter('status', 'published');
+        // initialize a query builder
+        $filterBuilder = $this->container->get('doctrine.orm.entity_manager')
+            ->getRepository('VictoireBlogBundle:Article')
+            ->createQueryBuilder('article')
+            ->where('article.status = :status')
+            ->setParameter('status', 'published');
 
-//         //If a maxResults param is passed, we add a "limit" clause
-//         if ($widget->getMaxResults()) {
-//             $filterBuilder->setMaxResults($widget->getMaxResults());
-//         }
+        //If a maxResults param is passed, we add a "limit" clause
+        if ($widget->getMaxResults()) {
+            $filterBuilder->setMaxResults($widget->getMaxResults());
+        }
 
-//         //web order by the publicationDate
-//         $filterBuilder->orderBy('article.publishedAt', 'DESC');
+        //web order by the publicationDate
+        $filterBuilder->orderBy('article.publishedAt', 'DESC');
 
-//         // build the query from the given form object
-//         $this->container->get('lexik_form_filter.query_builder_updater')->addFilterConditions($filterForm, $filterBuilder);
+        // build the query from the given form object
+        $this->container->get('lexik_form_filter.query_builder_updater')->addFilterConditions($filterForm, $filterBuilder);
 
-//         $articles = $filterBuilder->getQuery()->execute();
+        $articles = $filterBuilder->getQuery()->execute();
 
-//         return $this->container->get('victoire_templating')->render(
-//             "VictoireArticleListBundle::show.html.twig",
-//             array(
-//                 "articles" => $articles,
-//                 "widget"   => $widget
-//             )
-//         );
-//     }
+        return $articles;
+    }
 }

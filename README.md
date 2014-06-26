@@ -17,7 +17,7 @@ Do not forget to add the bundle in your AppKernel !
         {
             $bundles = array(
                 ...
-                new Victoire\ArticleListBundle\VictoireArticleListBundle(),
+                new Victoire\Widget\ArticleListBundle\VictoireArticleListBundle(),
             );
     
             return $bundles;

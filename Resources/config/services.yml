@@ -1,7 +1,18 @@
 services:
     victoire_core.twig.widget_articlelist_manager:
-        class: Victoire\ArticleListBundle\Widget\Manager\WidgetArticleListManager
-        arguments: [@service_container]
+        class: Victoire\Widget\ArticleListBundle\Widget\Manager\WidgetArticleListManager
+        arguments: 
+            - "@service_container"
 
     widget_articlelist_manager:
         alias: victoire_core.twig.widget_articlelist_manager
+        
+    #alias to the entity
+    victoire.widget.articlelist:
+        class: Victoire\Widget\ArticleListBundle\Entity\WidgetArticleList
+    #alias to the form
+    victoire.widget.form.articlelist:
+        class: Victoire\Widget\ArticleListBundle\Form\WidgetArticleListType
+        tags:
+            - { name: form.type , alias: victoire_widget_form_articlelist}
+        

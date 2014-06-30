@@ -38,16 +38,6 @@ use Victoire\Bundle\CoreBundle\Widget\Managers\WidgetManagerInterface;
 class WidgetArticleListManager extends BaseWidgetManager implements WidgetManagerInterface
 {
     /**
-     * The name of the widget
-     *
-     * @return string
-     */
-    public function getWidgetName()
-    {
-        return 'ArticleList';
-    }
-
-    /**
      * Get the static content of the widget
      *
      * @param Widget $widget
@@ -57,7 +47,10 @@ class WidgetArticleListManager extends BaseWidgetManager implements WidgetManage
      */
     protected function getWidgetStaticContent(Widget $widget)
     {
-        $filterForm = $this->container->get('form.factory')->create(new WidgetArticleListType('Article', '\Victoire\Widget\ArticleListBundle\Entity'), $widget);
+        $container = $this->container;
+
+        //create the form
+        $filterForm = $this->buildWidgetForm($widget, $widget->getPage(), null, null, Widget::MODE_STATIC);
 
         // initialize a query builder
         $filterBuilder = $this->container->get('doctrine.orm.entity_manager')

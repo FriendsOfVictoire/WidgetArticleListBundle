@@ -49,14 +49,8 @@ class WidgetArticleListType extends WidgetType
                 'apply_filter' => $noValidationClosure,
                 'label'        => 'widget.articlelist.form.type.linkLabel.label',
             ));
-    }
 
-    /**
-     * get form name
-     */
-    public function getName()
-    {
-        return 'appventus_victoireCoreBundle_widgetarticlelisttype';
+        parent::buildForm($builder, $options);
     }
 
     /**
@@ -65,6 +59,8 @@ class WidgetArticleListType extends WidgetType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        parent::setDefaultOptions($resolver);
+
         $resolver->setDefaults(array(
             'csrf_protection'   => false,
             'data_class'        => 'Victoire\Widget\ArticleListBundle\Entity\WidgetArticleList',
@@ -72,5 +68,15 @@ class WidgetArticleListType extends WidgetType
             'widget'             => 'articlelist',
             'translation_domain' => 'victoire'
         ));
+    }
+
+    /**
+     * get form name
+     *
+     * @return string The name of the form
+     */
+    public function getName()
+    {
+        return 'victoire_widget_form_articlelist';
     }
 }

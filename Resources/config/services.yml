@@ -3,6 +3,7 @@ services:
         class: Victoire\Widget\ArticleListBundle\Widget\Manager\WidgetArticleListManager
         arguments: 
             - "@service_container"
+            - "ArticleList"
 
     widget_articlelist_manager:
         alias: victoire_core.twig.widget_articlelist_manager

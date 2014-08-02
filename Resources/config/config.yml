@@ -1,8 +1,8 @@
 victoire_core:
     widgets:
-        articlelist:
+        ArticleList:
             class: "Victoire\\Widget\\ArticleListBundle\\Entity\\WidgetArticleList"
-            name: articlelist
+            name: ArticleList
 
 twig:
     form:

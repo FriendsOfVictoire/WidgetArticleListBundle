@@ -1,15 +1,12 @@
 <?php
 
-namespace Victoire\Widget\ArticleListBundle\Widget\Manager;
+namespace Victoire\Widget\ArticleListBundle\Resolver;
 
-
-use Victoire\Widget\ArticleListBundle\Form\WidgetArticleListType;
-use Victoire\Widget\ArticleListBundle\Entity\WidgetArticleList;
-
-
-use Victoire\Bundle\CoreBundle\Widget\Managers\BaseWidgetManager;
-use Victoire\Bundle\CoreBundle\Entity\Widget;
-use Victoire\Bundle\CoreBundle\Widget\Managers\WidgetManagerInterface;
+use Doctrine\ORM\EntityManager;
+use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdater;
+use Victoire\Bundle\WidgetBundle\Builder\WidgetFormBuilder;
+use Victoire\Bundle\WidgetBundle\Model\Widget;
+use Victoire\Bundle\WidgetBundle\Resolver\BaseWidgetContentResolver;
 
 /**
  * CRUD operations on WidgetRedactor Widget
@@ -35,26 +32,35 @@ use Victoire\Bundle\CoreBundle\Widget\Managers\WidgetManagerInterface;
  * By default, the methods throws Exception to notice the developer that he should implements it owns logic for the widget
  *
  */
-class WidgetArticleListManager extends BaseWidgetManager implements WidgetManagerInterface
+class WidgetArticleListContentResolver extends BaseWidgetContentResolver
 {
+
+    private $em;
+    private $queryBuilderUpdater;
+    private $widgetFormBuilder;
+
+    public function __construct(EntityManager $em, FilterBuilderUpdater $queryBuilderUpdater, WidgetFormBuilder $widgetFormBuilder)
+    {
+        $this->em = $em;
+        $this->queryBuilderUpdater = $queryBuilderUpdater;
+        $this->widgetFormBuilder = $widgetFormBuilder;
+    }
+
     /**
      * Get the static content of the widget
-     *
      * @param Widget $widget
+     *
      * @return string The static content
      *
      * @SuppressWarnings checkUnusedFunctionParameters
      */
-    protected function getWidgetStaticContent(Widget $widget)
+    public function getWidgetStaticContent(Widget $widget)
     {
-        $container = $this->container;
-
         //create the form
-        $filterForm = $this->buildWidgetForm($widget, $widget->getPage(), null, null, Widget::MODE_STATIC);
+        $filterForm = $this->widgetFormBuilder->buildWidgetForm($widget, $widget->getView(), null, null, Widget::MODE_STATIC);
 
         // initialize a query builder
-        $filterBuilder = $this->container->get('doctrine.orm.entity_manager')
-            ->getRepository('VictoireBlogBundle:Article')
+        $filterBuilder = $this->em->getRepository('VictoireBlogBundle:Article')
             ->createQueryBuilder('article')
             ->where('article.status = :status')
             ->setParameter('status', 'published');
@@ -68,10 +74,11 @@ class WidgetArticleListManager extends BaseWidgetManager implements WidgetManage
         $filterBuilder->orderBy('article.publishedAt', 'DESC');
 
         // build the query from the given form object
-        $this->container->get('lexik_form_filter.query_builder_updater')->addFilterConditions($filterForm, $filterBuilder);
-
+        $this->queryBuilderUpdater->addFilterConditions($filterForm, $filterBuilder);
         $articles = $filterBuilder->getQuery()->execute();
 
-        return $articles;
+        $parameters = parent::getWidgetStaticContent($widget);
+
+        return array_merge($parameters, array('articles' => $articles));
     }
 }

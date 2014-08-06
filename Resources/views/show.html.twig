@@ -5,10 +5,10 @@
         <h2><a href="{{ widget.globalLinkUrl }}">{{ widget.globalLinkTitle }}<small>{{ widget.globalLinkLabel }}</a></small></h2>
     </div>
 
-    {% if content|length %}
+    {% if articles|length %}
     <div class="lionbars" style="height:180px;overflow: auto;margin-bottom: 30px;">
         <table class="articlelist table-dl-horizontal">
-            {% for key, item in content %}
+            {% for key, item in articles %}
                   {% include "VictoireWidgetArticleListBundle::showItem.html.twig" with { item: item} %}
             {% endfor %}
         </table>

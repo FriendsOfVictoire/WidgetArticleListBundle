@@ -7,6 +7,10 @@ services:
             - @victoire_widget.widget_form_builder
         tags:
             - {name: victoire_widget.widget_content_resolver, alias: ArticleList }
+
+    #alias to the entity
+    victoire.widget.articlelist:
+        class: Victoire\Widget\ArticleListBundle\Entity\WidgetArticleList
     #alias to the form
     victoire.widget.form.articlelist:
         class: Victoire\Widget\ArticleListBundle\Form\WidgetArticleListType

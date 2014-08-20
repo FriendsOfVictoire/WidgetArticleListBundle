@@ -2,14 +2,11 @@
 
 namespace Victoire\Widget\ArticleListBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Victoire\Bundle\CoreBundle\Form\EntityProxyFormType;
 use Victoire\Bundle\CoreBundle\Form\WidgetType;
 use Lexik\Bundle\FormFilterBundle\Filter\Query\QueryInterface;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterOperands;
-
 
 /**
  * WidgetArticleList form type
@@ -19,8 +16,8 @@ class WidgetArticleListType extends WidgetType
 
     /**
      * define form fields
-     * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param FormBuilderInterface $builder
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -55,7 +52,7 @@ class WidgetArticleListType extends WidgetType
 
     /**
      * bind form to WidgetArticleList entity
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {

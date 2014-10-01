@@ -3,6 +3,7 @@ namespace Victoire\Widget\ArticleListBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Victoire\Bundle\WidgetBundle\Entity\Widget;
+use Victoire\Widget\ListingBundle\Entity\WidgetListing;
 
 /**
  * WidgetArticleList
@@ -10,7 +11,7 @@ use Victoire\Bundle\WidgetBundle\Entity\Widget;
  * @ORM\Table("vic_widget_articlelist")
  * @ORM\Entity
  */
-class WidgetArticleList extends Widget
+class WidgetArticleList extends WidgetListing
 {
     /**
      * @var string

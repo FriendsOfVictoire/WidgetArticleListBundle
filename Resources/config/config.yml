@@ -3,6 +3,7 @@ victoire_core:
         ArticleList:
             class: "Victoire\\Widget\\ArticleListBundle\\Entity\\WidgetArticleList"
             name: ArticleList
+            parent: Listing
 
 twig:
     form:

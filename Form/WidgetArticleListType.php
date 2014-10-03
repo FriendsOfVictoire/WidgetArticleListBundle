@@ -2,16 +2,17 @@
 
 namespace Victoire\Widget\ArticleListBundle\Form;
 
+use Lexik\Bundle\FormFilterBundle\Filter\FilterOperands;
+use Lexik\Bundle\FormFilterBundle\Filter\Query\QueryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Victoire\Bundle\CoreBundle\Form\WidgetType;
-use Lexik\Bundle\FormFilterBundle\Filter\Query\QueryInterface;
-use Lexik\Bundle\FormFilterBundle\Filter\FilterOperands;
+use Victoire\Widget\ListingBundle\Form\WidgetListingType;
 
 /**
  * WidgetArticleList form type
  */
-class WidgetArticleListType extends WidgetType
+class WidgetArticleListType extends WidgetListingType
 {
 
     /**

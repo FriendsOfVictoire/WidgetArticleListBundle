@@ -10,7 +10,7 @@
     {% if articles|length %}
     <div class="lionbars" style="height:180px;overflow: auto;margin-bottom: 30px;">
         <table class="articlelist table-dl-horizontal">
-            {% for key, item in articles %}
+            {% for key, item in items %}
                   {% include "VictoireWidgetArticleListBundle::showItem.html.twig" with { item: item} %}
             {% endfor %}
         </table>

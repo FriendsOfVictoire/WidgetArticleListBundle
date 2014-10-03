@@ -4,9 +4,11 @@ namespace Victoire\Widget\ArticleListBundle\Resolver;
 
 use Doctrine\ORM\EntityManager;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdater;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Victoire\Bundle\WidgetBundle\Builder\WidgetFormBuilder;
 use Victoire\Bundle\WidgetBundle\Model\Widget;
-use Victoire\Bundle\WidgetBundle\Resolver\BaseWidgetContentResolver;
+use Victoire\Widget\FilterBundle\Filter\Chain\FilterChain;
+use Victoire\Widget\ListingBundle\Resolver\WidgetListingContentResolver;
 
 /**
  * CRUD operations on WidgetRedactor Widget
@@ -32,14 +34,14 @@ use Victoire\Bundle\WidgetBundle\Resolver\BaseWidgetContentResolver;
  * By default, the methods throws Exception to notice the developer that he should implements it owns logic for the widget
  *
  */
-class WidgetArticleListContentResolver extends BaseWidgetContentResolver
+class WidgetArticleListContentResolver extends WidgetListingContentResolver
 {
 
     private $em;
     private $queryBuilderUpdater;
     private $widgetFormBuilder;
 
-    public function __construct(EntityManager $em, FilterBuilderUpdater $queryBuilderUpdater, WidgetFormBuilder $widgetFormBuilder)
+    public function __construct(RequestStack $requestStack, FilterChain $filterChain = null, EntityManager $em, FilterBuilderUpdater $queryBuilderUpdater, WidgetFormBuilder $widgetFormBuilder)
     {
         $this->em = $em;
         $this->queryBuilderUpdater = $queryBuilderUpdater;
@@ -79,6 +81,6 @@ class WidgetArticleListContentResolver extends BaseWidgetContentResolver
 
         $parameters = parent::getWidgetStaticContent($widget);
 
-        return array_merge($parameters, array('articles' => $articles));
+        return array_merge($parameters, array('items' => $articles));
     }
 }

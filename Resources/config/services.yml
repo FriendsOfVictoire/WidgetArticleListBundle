@@ -1,6 +1,7 @@
 services:
     victoire_core.widget_articlelist.content_resolver:
         class: Victoire\Widget\ArticleListBundle\Resolver\WidgetArticleListContentResolver
+        parent: victoire_core.widget_listing_content_resolver
         arguments:
             - @doctrine.orm.entity_manager
             - @lexik_form_filter.query_builder_updater

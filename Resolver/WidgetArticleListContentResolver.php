@@ -4,6 +4,8 @@ namespace Victoire\Widget\ArticleListBundle\Resolver;
 
 use Doctrine\ORM\EntityManager;
 use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdater;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Victoire\Bundle\WidgetBundle\Builder\WidgetFormBuilder;
 use Victoire\Bundle\WidgetBundle\Model\Widget;
@@ -46,6 +48,7 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
         $this->em = $em;
         $this->queryBuilderUpdater = $queryBuilderUpdater;
         $this->widgetFormBuilder = $widgetFormBuilder;
+        parent::__construct($requestStack, $filterChain);
     }
 
     /**
@@ -77,10 +80,24 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
 
         // build the query from the given form object
         $this->queryBuilderUpdater->addFilterConditions($filterForm, $filterBuilder);
-        $articles = $filterBuilder->getQuery()->execute();
+        // $articles = $filterBuilder->getQuery()->execute();
+
+
+
+
+        $adapter = new DoctrineORMAdapter($filterBuilder->getQuery());
+
+        $pager = new Pagerfanta($adapter);
+        $pager->setMaxPerPage($widget->getMaxResults());
+        $pager->setCurrentPage($this->request->get('page') ? : 1);
+
+        $articles = $pager->getCurrentPageResults();
+
+
+
 
         $parameters = parent::getWidgetStaticContent($widget);
 
-        return array_merge($parameters, array('items' => $articles));
+        return array_merge($parameters, array('items' => $articles, 'pager' => $pager));
     }
 }

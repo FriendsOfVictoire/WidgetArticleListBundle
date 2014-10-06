@@ -59,7 +59,7 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
      *
      * @SuppressWarnings checkUnusedFunctionParameters
      */
-    public function getWidgetStaticContent(Widget $widget)
+    public function getWidgetQueryContent(Widget $widget)
     {
         //create the form
         $filterForm = $this->widgetFormBuilder->buildWidgetForm($widget, $widget->getView(), null, null, Widget::MODE_STATIC);
@@ -80,10 +80,6 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
 
         // build the query from the given form object
         $this->queryBuilderUpdater->addFilterConditions($filterForm, $filterBuilder);
-        // $articles = $filterBuilder->getQuery()->execute();
-
-
-
 
         $adapter = new DoctrineORMAdapter($filterBuilder->getQuery());
 

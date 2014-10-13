@@ -71,7 +71,7 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
             ->setParameter('status', 'published');
 
         //If a maxResults param is passed, we add a "limit" clause
-        if ($widget->getMaxResults()) {
+        if ($widget->getMaxResults() && is_integer($widget->getMaxResults())) {
             $filterBuilder->setMaxResults($widget->getMaxResults());
         }
 
@@ -84,13 +84,14 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
         $adapter = new DoctrineORMAdapter($filterBuilder->getQuery());
 
         $pager = new Pagerfanta($adapter);
-        $pager->setMaxPerPage($widget->getMaxResults());
+        //@todo @paul Is it usefull regarding line #74 ?
+        if ($widget->getMaxResults() && is_integer($widget->getMaxResults())) {
+            $pager->setMaxPerPage($widget->getMaxResults());
+        }
+
         $pager->setCurrentPage($this->request->get('page') ? : 1);
 
         $articles = $pager->getCurrentPageResults();
-
-
-
 
         $parameters = parent::getWidgetStaticContent($widget);
 

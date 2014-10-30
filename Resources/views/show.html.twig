@@ -2,12 +2,12 @@
 
 {% block content %}
 {# Do not display content when no article to display #}
-{% if articles|length or is_granted('ROLE_VICTOIRE') %}
+{% if items|length or is_granted('ROLE_VICTOIRE') %}
 	<div class="blog-head-home-container">
         <h2><a href="{{ widget.globalLinkUrl }}">{{ widget.globalLinkTitle }}<small>{{ widget.globalLinkLabel }}</a></small></h2>
     </div>
 
-    {% if articles|length %}
+    {% if items|length %}
     <div class="lionbars" style="height:180px;overflow: auto;margin-bottom: 30px;">
         <table class="articlelist table-dl-horizontal">
             {% for key, item in items %}

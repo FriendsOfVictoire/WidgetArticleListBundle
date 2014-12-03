@@ -16,21 +16,21 @@ class WidgetArticleList extends WidgetListing
     /**
      * @var string
      *
-     * @ORM\Column(name="global_link_title", type="string", length=255)
+     * @ORM\Column(name="global_link_title", type="string", length=255, nullable=true)
      */
     protected $globalLinkTitle;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="global_link_url", type="string", length=255)
+     * @ORM\Column(name="global_link_url", type="string", length=255, nullable=true)
      */
     protected $globalLinkUrl;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="global_link_label", type="string", length=255)
+     * @ORM\Column(name="global_link_label", type="string", length=255, nullable=true)
      */
     protected $globalLinkLabel;
 

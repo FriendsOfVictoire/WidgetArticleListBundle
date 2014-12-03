@@ -4,7 +4,16 @@
 {# Do not display content when no article to display #}
 {% if items|length or is_granted('ROLE_VICTOIRE') %}
 	<div class="blog-head-home-container">
-        <h2><a href="{{ widget.globalLinkUrl }}">{{ widget.globalLinkTitle }}<small>{{ widget.globalLinkLabel }}</a></small></h2>
+        <h2>
+            {% if widget.globalLinkUrl is defined %}
+            <a href="{{ widget.globalLinkUrl }}">
+            {% endif %}
+                {% if widget.globalLinkTitle is defined %}{{ widget.globalLinkTitle }}{% endif %}
+                {% if widget.globalLinkLabel is defined %}<small>{{ widget.globalLinkLabel }}</small>{% endif %}
+            {% if widget.globalLinkUrl is defined %}
+            </a>
+            {% endif %}
+        </h2>
     </div>
 
     {% if items|length %}

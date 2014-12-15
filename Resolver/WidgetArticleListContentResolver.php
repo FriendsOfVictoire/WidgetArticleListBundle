@@ -61,25 +61,11 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
      */
     public function getWidgetQueryContent(Widget $widget)
     {
-        //create the form
-        $filterForm = $this->widgetFormBuilder->buildWidgetForm($widget, $widget->getView(), null, null, Widget::MODE_STATIC);
+        $filterBuilder = $this->getWidgetQueryBuilder($widget);
 
-        // initialize a query builder
-        $filterBuilder = $this->em->getRepository('VictoireBlogBundle:Article')
-            ->createQueryBuilder('article')
-            ->where('article.status = :status')
-            ->setParameter('status', 'published');
-
-        //If a maxResults param is passed, we add a "limit" clause
-        if ($widget->getMaxResults() && is_integer($widget->getMaxResults())) {
-            $filterBuilder->setMaxResults($widget->getMaxResults());
-        }
-
-        //web order by the publicationDate
-        $filterBuilder->orderBy('article.publishedAt', 'DESC');
-
-        // build the query from the given form object
-        $this->queryBuilderUpdater->addFilterConditions($filterForm, $filterBuilder);
+        $filterBuilder->orderBy('main_item.publishedAt', 'DESC')
+                      ->where('main_item.status = :status')
+                      ->setParameter('status', 'published');
 
         $adapter = new DoctrineORMAdapter($filterBuilder->getQuery());
 

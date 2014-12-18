@@ -6,7 +6,6 @@ use Lexik\Bundle\FormFilterBundle\Filter\FilterOperands;
 use Lexik\Bundle\FormFilterBundle\Filter\Query\QueryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Victoire\Bundle\CoreBundle\Form\WidgetType;
 use Victoire\Widget\ListingBundle\Form\WidgetListingType;
 
 /**
@@ -25,6 +24,8 @@ class WidgetArticleListType extends WidgetListingType
         $noValidationClosure = function (QueryInterface $filterQuery, $field, $values) {
                 return false;
         };
+
+        parent::buildForm($builder, $options);
 
         $builder
             ->add('title', 'filter_text', array(
@@ -46,9 +47,8 @@ class WidgetArticleListType extends WidgetListingType
             ->add('globalLinkLabel', null, array(
                 'apply_filter' => $noValidationClosure,
                 'label'        => 'widget.articlelist.form.type.linkLabel.label',
-            ));
-
-        parent::buildForm($builder, $options);
+            ))
+            ->remove('targetPattern');
     }
 
     /**

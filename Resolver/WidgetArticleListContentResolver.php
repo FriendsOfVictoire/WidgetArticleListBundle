@@ -64,7 +64,7 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
         $filterBuilder = $this->getWidgetQueryBuilder($widget);
 
         $filterBuilder->orderBy('main_item.publishedAt', 'DESC')
-                      ->where('main_item.status = :status')
+                      ->andWhere('main_item.status = :status')
                       ->setParameter('status', 'published');
 
         $adapter = new DoctrineORMAdapter($filterBuilder->getQuery());

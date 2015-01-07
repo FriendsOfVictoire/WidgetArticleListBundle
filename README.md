@@ -7,7 +7,7 @@ Get this bundle and so on
 First you need to have a valid Symfony2 Victoire edition.
 Then you just have to run the following composer command :
 
-    php composer.phar require victoire/articlelist-bundle
+    php composer.phar require victoire/articlelist-widget
 
 Do not forget to add the bundle in your AppKernel !
 
@@ -17,7 +17,7 @@ Do not forget to add the bundle in your AppKernel !
         {
             $bundles = array(
                 ...
-                new Victoire\Widget\ArticleListBundle\VictoireArticleListBundle(),
+                new Victoire\Widget\ArticleListBundle\VictoireWidgetArticleListBundle(),
             );
     
             return $bundles;

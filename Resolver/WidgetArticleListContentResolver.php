@@ -38,7 +38,6 @@ use Victoire\Widget\ListingBundle\Resolver\WidgetListingContentResolver;
  */
 class WidgetArticleListContentResolver extends WidgetListingContentResolver
 {
-
     private $em;
     private $queryBuilderUpdater;
     private $widgetFormBuilder;
@@ -63,19 +62,20 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
     {
         $filterBuilder = $this->getWidgetQueryBuilder($widget);
 
-        $filterBuilder->orderBy('main_item.publishedAt', 'DESC')
-                      ->andWhere('main_item.status = :status')
-                      ->setParameter('status', 'published');
+        $filterBuilder
+            ->leftJoin('main_item.blog', 'blog')
+            ->orderBy('main_item.publishedAt', 'DESC')
+            ->andWhere('main_item.status = :status')
+            ->setParameter('status', 'published');
 
         $adapter = new DoctrineORMAdapter($filterBuilder->getQuery());
 
         $pager = new Pagerfanta($adapter);
-        //@todo @paul Is it usefull regarding line #74 ?
         if ($widget->getMaxResults() && is_integer($widget->getMaxResults())) {
             $pager->setMaxPerPage($widget->getMaxResults());
         }
 
-        $pager->setCurrentPage($this->request->get('page') ? : 1);
+        $pager->setCurrentPage($this->request->get('page') ?: 1);
 
         $articles = $pager->getCurrentPageResults();
 

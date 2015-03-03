@@ -7,6 +7,7 @@ use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdater;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Victoire\Bundle\BlogBundle\Entity\Article;
 use Victoire\Bundle\WidgetBundle\Builder\WidgetFormBuilder;
 use Victoire\Bundle\WidgetBundle\Model\Widget;
 use Victoire\Widget\FilterBundle\Filter\Chain\FilterChain;
@@ -64,9 +65,13 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
 
         $filterBuilder
             ->leftJoin('main_item.blog', 'blog')
-            ->orderBy('main_item.publishedAt', 'DESC')
+            ->addOrderBy('main_item.publishedAt', 'DESC')
+            ->addOrderBy('main_item.createdAt', 'DESC')
             ->andWhere('main_item.status = :status')
-            ->setParameter('status', 'published');
+            ->orWhere('main_item.status = :scheduled_status AND main_item.publishedAt > :publicationDate')
+            ->setParameter('status', Article::PUBLISHED)
+            ->setParameter('scheduled_status', Article::SCHEDULED)
+            ->setParameter('publicationDate', new \DateTime());
 
         $adapter = new DoctrineORMAdapter($filterBuilder->getQuery());
 

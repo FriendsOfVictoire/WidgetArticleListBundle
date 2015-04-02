@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Victoire\Bundle\BlogBundle\Entity\Article;
 use Victoire\Bundle\WidgetBundle\Builder\WidgetFormBuilder;
 use Victoire\Bundle\WidgetBundle\Model\Widget;
-use Victoire\Widget\FilterBundle\Filter\Chain\FilterChain;
+use Victoire\Bundle\FilterBundle\Filter\Chain\FilterChain;
 use Victoire\Widget\ListingBundle\Resolver\WidgetListingContentResolver;
 
 /**

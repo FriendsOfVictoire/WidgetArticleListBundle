@@ -1,5 +1,5 @@
 {
-    "name": "victoire/articlelist-widget",
+    "name": "appventus/articlelist-widget",
     "type": "symfony-bundle",
     "description": "Victoire Cms article list widget",
     "keywords": ["cms", "victoire", "article", "list", "widget"],

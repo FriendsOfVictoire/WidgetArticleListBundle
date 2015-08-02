@@ -12,10 +12,10 @@
         }
     ],
     "require": {
-        "php"                                 : ">=5.3.3",
-        "symfony/framework-bundle"            : "~2.3",
-        "victoire/victoire"                   : ">=0.1",
-        "lexik/form-filter-bundle"            : "dev-master"
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.3",
+        "victoire/victoire": ">=0.1",
+        "lexik/form-filter-bundle": "3.*@dev"
     },
     "autoload": {
         "psr-0": { "Victoire\\Widget\\ArticleListBundle": "" }

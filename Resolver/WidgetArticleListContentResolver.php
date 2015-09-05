@@ -80,7 +80,7 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
             $pager->setMaxPerPage($widget->getMaxResults());
         }
 
-        $pager->setCurrentPage($this->request->get('page') ?: 1);
+        $pager->setCurrentPage($this->request->get('page', $this->currentPage));
 
         $articles = $pager->getCurrentPageResults();
 

@@ -1,21 +1,21 @@
 {
     "name": "friendsofvictoire/articlelist-widget",
     "type": "symfony-bundle",
-    "description": "Victoire Cms article list widget",
-    "keywords": ["cms", "victoire", "article", "list", "widget"],
-    "homepage": "http://appventus.com",
+    "description": "Victoire DCMS List articles widget",
+    "keywords": ["DCMS", "Victoire", "widget", "FriendsofVictoire", "Dynamic", "CMS", "article", "list", "blog"],
+    "homepage": "http://victoire.io",
     "license": "MIT",
     "authors": [
         {
             "name": "Leny Bernard",
-            "email": "leny@appventus.com"
+            "email": "leny@victoire.io"
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "symfony/framework-bundle": "~2.3",
-        "victoire/victoire": ">=0.1",
-        "lexik/form-filter-bundle": "3.*@dev"
+        "php"                       : ">=5.3.3",
+        "symfony/framework-bundle"  : "~2.3",
+        "victoire/victoire"         : "dev-master",
+        "lexik/form-filter-bundle"  : "3.*@dev"
     },
     "autoload": {
         "psr-0": { "Victoire\\Widget\\ArticleListBundle": "" }

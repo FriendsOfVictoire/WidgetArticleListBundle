@@ -1,13 +1,20 @@
-Victoire Article List Bundle
+Victoire DCMS List Articles Bundle
 ============
 
-Need to add an article list in a victoire website ?
-Get this bundle and so on
+##What is the purpose of this bundle
 
-First you need to have a valid Symfony2 Victoire edition.
-Then you just have to run the following composer command :
+This bundle installs the *List Articles Widget*.
+If you have set up a Victoire's blog, this widget helps you to render a list of your posts and pages with various parameters
+
+##Set Up Victoire
+
+If you haven't already, you can follow the steps to set up Victoire *[here](https://github.com/Victoire/victoire/blob/master/setup.md)*
+
+##Install the Bundle :
 
     php composer.phar require friendsofvictoire/articlelist-widget
+
+##Reminder
 
 Do not forget to add the bundle in your AppKernel !
 
@@ -19,7 +26,7 @@ Do not forget to add the bundle in your AppKernel !
                 ...
                 new Victoire\Widget\ArticleListBundle\VictoireWidgetArticleListBundle(),
             );
-    
+
             return $bundles;
         }
     }

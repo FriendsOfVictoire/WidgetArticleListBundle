@@ -1,4 +1,5 @@
 <?php
+
 namespace Victoire\Widget\ArticleListBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -6,7 +7,7 @@ use Victoire\Bundle\WidgetBundle\Entity\Widget;
 use Victoire\Widget\ListingBundle\Entity\WidgetListing;
 
 /**
- * WidgetArticleList
+ * WidgetArticleList.
  *
  * @ORM\Table("vic_widget_articlelist")
  * @ORM\Entity
@@ -49,7 +50,7 @@ class WidgetArticleList extends WidgetListing
     protected $maxResults;
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      */
@@ -61,7 +62,7 @@ class WidgetArticleList extends WidgetListing
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -71,7 +72,7 @@ class WidgetArticleList extends WidgetListing
     }
 
     /**
-     * Set maxResults
+     * Set maxResults.
      *
      * @param string $maxResults
      */
@@ -83,7 +84,7 @@ class WidgetArticleList extends WidgetListing
     }
 
     /**
-     * Get maxResults
+     * Get maxResults.
      *
      * @return string
      */
@@ -93,7 +94,7 @@ class WidgetArticleList extends WidgetListing
     }
 
     /**
-     * Set globalLinkTitle
+     * Set globalLinkTitle.
      *
      * @param string $globalLinkTitle
      */
@@ -105,7 +106,7 @@ class WidgetArticleList extends WidgetListing
     }
 
     /**
-     * Get globalLinkTitle
+     * Get globalLinkTitle.
      *
      * @return string
      */
@@ -115,7 +116,7 @@ class WidgetArticleList extends WidgetListing
     }
 
     /**
-     * Set globalLinkUrl
+     * Set globalLinkUrl.
      *
      * @param string $globalLinkUrl
      */
@@ -127,7 +128,7 @@ class WidgetArticleList extends WidgetListing
     }
 
     /**
-     * Get globalLinkUrl
+     * Get globalLinkUrl.
      *
      * @return string
      */
@@ -137,7 +138,7 @@ class WidgetArticleList extends WidgetListing
     }
 
     /**
-     * Set globalLinkLabel
+     * Set globalLinkLabel.
      *
      * @param string $globalLinkLabel
      */
@@ -149,7 +150,7 @@ class WidgetArticleList extends WidgetListing
     }
 
     /**
-     * Get globalLinkLabel
+     * Get globalLinkLabel.
      *
      * @return string
      */

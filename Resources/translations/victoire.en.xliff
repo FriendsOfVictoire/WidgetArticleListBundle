@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="1c2194ea2267e5de02e35e7081c873ceb800fd49" resname="widget.articlelist.empty">
+        <source>widget.articlelist.empty</source>
+        <target>No post meets your criteria</target>
+      </trans-unit>
+      <trans-unit id="8a0b0d31dcaab1048d7c9c09688f80ee52c1f597" resname="widget.articlelist.form.type.linkLabel.label">
+        <source>widget.articlelist.form.type.linkLabel.label</source>
+        <target>Subtitle</target>
+      </trans-unit>
+      <trans-unit id="4971ae25340204db25f9d1061169dabe67302f4a" resname="widget.articlelist.form.type.linkTitle.label">
+        <source>widget.articlelist.form.type.linkTitle.label</source>
+        <target>Title</target>
+      </trans-unit>
+      <trans-unit id="fd80a842807888d877532d242cfebe5376748641" resname="widget.articlelist.form.type.linkUrl.label">
+        <source>widget.articlelist.form.type.linkUrl.label</source>
+        <target>Link</target>
+      </trans-unit>
+      <trans-unit id="884ce9ae40ced06dfc55cdd70b399f1fd1193b3f" resname="widget.articlelist.form.type.maxResults.label">
+        <source>widget.articlelist.form.type.maxResults.label</source>
+        <target>Maximum number</target>
+      </trans-unit>
+      <trans-unit id="9f6caaaec2b6fdd2111187773c70685075d64b67" resname="widget.articlelist.form.type.title.label">
+        <source>widget.articlelist.form.type.title.label</source>
+        <target>Filter</target>
+      </trans-unit>
+      <trans-unit id="8f6caaaec2b6fdd2111187773c70685075d64b67" resname="widget.articlelist.new.action.label">
+        <source>widget.articlelist.new.action.label</source>
+        <target>List articles</target>
+      </trans-unit>
+      <trans-unit resname="modal.form.widget.type.articlelist.label">
+        <source>modal.form.widget.type.articlelist.label</source>
+        <target>List articles</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

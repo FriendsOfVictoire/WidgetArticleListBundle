@@ -8,14 +8,13 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Victoire\Widget\ListingBundle\Form\WidgetListingType;
 
-/**
- * WidgetArticleList form type
- */
+/* WidgetArticleList form type */
 class WidgetArticleListType extends WidgetListingType
 {
 
     /**
-     * define form fields
+     * define form fields.
+     *
      * @param FormBuilderInterface $builder
      * @param array                $options
      */
@@ -28,48 +27,49 @@ class WidgetArticleListType extends WidgetListingType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('title', 'filter_text', array(
+            ->add('title', 'filter_text', [
                 'condition_pattern' => FilterOperands::STRING_BOTH,
-                'label'             => 'widget.articlelist.form.type.title.label'))
-            ->add('maxResults', 'integer', array(
+                'label'             => 'widget.articlelist.form.type.title.label'])
+            ->add('maxResults', 'integer', [
                 'apply_filter' => $noValidationClosure,
                 'label'        => 'widget.articlelist.form.type.maxResults.label',
                 'required'     => false
-            ))
-            ->add('globalLinkTitle', null, array(
+            ])
+            ->add('globalLinkTitle', null, [
                 'apply_filter' => $noValidationClosure,
                 'label'        => 'widget.articlelist.form.type.linkTitle.label',
-            ))
-            ->add('globalLinkUrl', null, array(
+            ])
+            ->add('globalLinkUrl', null, [
                 'apply_filter' => $noValidationClosure,
                 'label'        => 'widget.articlelist.form.type.linkUrl.label',
-            ))
-            ->add('globalLinkLabel', null, array(
+            ])
+            ->add('globalLinkLabel', null, [
                 'apply_filter' => $noValidationClosure,
                 'label'        => 'widget.articlelist.form.type.linkLabel.label',
-            ))
+            ])
             ->remove('targetPattern');
     }
 
     /**
-     * bind form to WidgetArticleList entity
+     * bind form to WidgetArticleList entity.
+     *
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
 
-        $resolver->setDefaults(array(
-            'csrf_protection'   => false,
-            'data_class'        => 'Victoire\Widget\ArticleListBundle\Entity\WidgetArticleList',
-            'validation_groups' => array('filtering'), // avoid NotBlank() constraint-related message
+        $resolver->setDefaults([
+            'csrf_protection'    => false,
+            'data_class'         => 'Victoire\Widget\ArticleListBundle\Entity\WidgetArticleList',
+            'validation_groups'  => ['filtering'), // avoid NotBlank() constraint-related message
             'widget'             => 'articlelist',
             'translation_domain' => 'victoire'
-        ));
+        ]);
     }
 
     /**
-     * get form name
+     * get form name.
      *
      * @return string The name of the form
      */

@@ -62,7 +62,7 @@ class WidgetArticleListType extends WidgetListingType
         $resolver->setDefaults([
             'csrf_protection'    => false,
             'data_class'         => 'Victoire\Widget\ArticleListBundle\Entity\WidgetArticleList',
-            'validation_groups'  => ['filtering'), // avoid NotBlank() constraint-related message
+            'validation_groups'  => ['filtering'], // avoid NotBlank() constraint-related message
             'widget'             => 'articlelist',
             'translation_domain' => 'victoire'
         ]);

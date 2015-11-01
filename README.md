@@ -14,7 +14,7 @@ If you haven't already, you can follow the steps to set up Victoire *[here](http
 
     php composer.phar require friendsofvictoire/articlelist-widget
 
-##Reminder
+###Reminder
 
 Do not forget to add the bundle in your AppKernel !
 

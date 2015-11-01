@@ -2,7 +2,7 @@
     "name": "friendsofvictoire/articlelist-widget",
     "type": "symfony-bundle",
     "description": "Victoire DCMS List articles widget",
-    "keywords": ["DCMS", "Victoire", "widget", "FriendsofVictoire", "Dynamic", "CMS", "article", "list", "blog"],
+    "keywords": ["DCMS", "Victoire", "widget", "FriendsofVictoire", "FoV", "Dynamic", "CMS", "article", "list", "blog"],
     "homepage": "http://victoire.io",
     "license": "MIT",
     "authors": [
@@ -14,7 +14,7 @@
     "require": {
         "php"                       : ">=5.3.3",
         "symfony/framework-bundle"  : "~2.3",
-        "victoire/victoire"         : "dev-master",
+        "victoire/victoire"         : "~1.3.0",
         "lexik/form-filter-bundle"  : "3.*@dev"
     },
     "autoload": {

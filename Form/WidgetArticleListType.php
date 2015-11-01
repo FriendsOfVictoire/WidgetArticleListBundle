@@ -11,7 +11,6 @@ use Victoire\Widget\ListingBundle\Form\WidgetListingType;
 /* WidgetArticleList form type */
 class WidgetArticleListType extends WidgetListingType
 {
-
     /**
      * define form fields.
      *
@@ -29,11 +28,11 @@ class WidgetArticleListType extends WidgetListingType
         $builder
             ->add('title', 'filter_text', [
                 'condition_pattern' => FilterOperands::STRING_BOTH,
-                'label'             => 'widget.articlelist.form.type.title.label'])
+                'label'             => 'widget.articlelist.form.type.title.label', ])
             ->add('maxResults', 'integer', [
                 'apply_filter' => $noValidationClosure,
                 'label'        => 'widget.articlelist.form.type.maxResults.label',
-                'required'     => false
+                'required'     => false,
             ])
             ->add('globalLinkTitle', null, [
                 'apply_filter' => $noValidationClosure,
@@ -64,7 +63,7 @@ class WidgetArticleListType extends WidgetListingType
             'data_class'         => 'Victoire\Widget\ArticleListBundle\Entity\WidgetArticleList',
             'validation_groups'  => ['filtering'], // avoid NotBlank() constraint-related message
             'widget'             => 'articlelist',
-            'translation_domain' => 'victoire'
+            'translation_domain' => 'victoire',
         ]);
     }
 

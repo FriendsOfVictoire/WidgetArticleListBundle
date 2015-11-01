@@ -8,13 +8,13 @@ use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Victoire\Bundle\BlogBundle\Entity\Article;
+use Victoire\Bundle\FilterBundle\Filter\Chain\FilterChain;
 use Victoire\Bundle\WidgetBundle\Builder\WidgetFormBuilder;
 use Victoire\Bundle\WidgetBundle\Model\Widget;
-use Victoire\Bundle\FilterBundle\Filter\Chain\FilterChain;
 use Victoire\Widget\ListingBundle\Resolver\WidgetListingContentResolver;
 
 /**
- * CRUD operations on WidgetRedactor Widget
+ * CRUD operations on WidgetRedactor Widget.
  *
  * The widget view has two parameters: widget and content
  *
@@ -35,7 +35,6 @@ use Victoire\Widget\ListingBundle\Resolver\WidgetListingContentResolver;
  * If you just want to use the widget and not the content, remove the method that throws the exceptions.
  *
  * By default, the methods throws Exception to notice the developer that he should implements it owns logic for the widget
- *
  */
 class WidgetArticleListContentResolver extends WidgetListingContentResolver
 {
@@ -52,7 +51,8 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
     }
 
     /**
-     * Get the static content of the widget
+     * Get the static content of the widget.
+     *
      * @param Widget $widget
      *
      * @return string The static content
@@ -76,7 +76,7 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
         $adapter = new DoctrineORMAdapter($filterBuilder->getQuery());
 
         $pager = new Pagerfanta($adapter);
-        if ($widget->getMaxResults() && is_integer($widget->getMaxResults())) {
+        if ($widget->getMaxResults() && is_int($widget->getMaxResults())) {
             $pager->setMaxPerPage($widget->getMaxResults());
         }
 
@@ -86,6 +86,6 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
 
         $parameters = parent::getWidgetStaticContent($widget);
 
-        return array_merge($parameters, array('items' => $articles, 'pager' => $pager));
+        return array_merge($parameters, ['items' => $articles, 'pager' => $pager]);
     }
 }

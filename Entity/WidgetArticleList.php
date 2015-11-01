@@ -3,7 +3,6 @@
 namespace Victoire\Widget\ArticleListBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Victoire\Bundle\WidgetBundle\Entity\Widget;
 use Victoire\Widget\ListingBundle\Entity\WidgetListing;
 
 /**
@@ -43,7 +42,7 @@ class WidgetArticleList extends WidgetListing
     protected $title;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="maxResults", type="integer", nullable=true)
      */
@@ -158,5 +157,4 @@ class WidgetArticleList extends WidgetListing
     {
         return $this->globalLinkLabel;
     }
-
 }

@@ -3,12 +3,13 @@
 namespace Victoire\Widget\ArticleListBundle\Form;
 
 use Lexik\Bundle\FormFilterBundle\Filter\FilterOperands;
+use Lexik\Bundle\FormFilterBundle\Filter\Form\Type\TextFilterType;
 use Lexik\Bundle\FormFilterBundle\Filter\Query\QueryInterface;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Victoire\Widget\ListingBundle\Form\WidgetListingType;
 
-/* WidgetArticleList form type */
 class WidgetArticleListType extends WidgetListingType
 {
     /**
@@ -26,10 +27,10 @@ class WidgetArticleListType extends WidgetListingType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('title', 'filter_text', [
+            ->add('title', TextFilterType::class, [
                 'condition_pattern' => FilterOperands::STRING_BOTH,
                 'label'             => 'widget.articlelist.form.type.title.label', ])
-            ->add('maxResults', 'integer', [
+            ->add('maxResults', IntegerType::class, [
                 'apply_filter' => $noValidationClosure,
                 'label'        => 'widget.articlelist.form.type.maxResults.label',
                 'required'     => false,
@@ -50,13 +51,11 @@ class WidgetArticleListType extends WidgetListingType
     }
 
     /**
-     * bind form to WidgetArticleList entity.
-     *
-     * @param OptionsResolverInterface $resolver
+     * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        parent::setDefaultOptions($resolver);
+        parent::configureOptions($resolver);
 
         $resolver->setDefaults([
             'csrf_protection'    => false,
@@ -65,15 +64,5 @@ class WidgetArticleListType extends WidgetListingType
             'widget'             => 'articlelist',
             'translation_domain' => 'victoire',
         ]);
-    }
-
-    /**
-     * get form name.
-     *
-     * @return string The name of the form
-     */
-    public function getName()
-    {
-        return 'victoire_widget_form_articlelist';
     }
 }

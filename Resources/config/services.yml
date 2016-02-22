@@ -16,5 +16,5 @@ services:
     victoire.widget.form.articlelist:
         class: Victoire\Widget\ArticleListBundle\Form\WidgetArticleListType
         tags:
-            - { name: form.type , alias: victoire_widget_form_articlelist}
+            - { name: form.type }
 

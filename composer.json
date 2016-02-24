@@ -18,7 +18,7 @@
     ],
     "require": {
         "victoire/victoire": "~1.5",
-        "lexik/form-filter-bundle": "3.*@dev",
+        "lexik/form-filter-bundle": "~5.0",
         "friendsofvictoire/listing-widget": "~1.5"
     },
     "autoload": {

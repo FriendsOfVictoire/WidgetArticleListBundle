@@ -9,6 +9,7 @@ use Pagerfanta\Pagerfanta;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Victoire\Bundle\BlogBundle\Entity\Article;
 use Victoire\Bundle\FilterBundle\Filter\Chain\FilterChain;
+use Victoire\Bundle\PageBundle\Entity\PageStatus;
 use Victoire\Bundle\WidgetBundle\Builder\WidgetFormBuilder;
 use Victoire\Bundle\WidgetBundle\Model\Widget;
 use Victoire\Widget\ListingBundle\Resolver\WidgetListingContentResolver;
@@ -42,12 +43,12 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
     private $queryBuilderUpdater;
     private $widgetFormBuilder;
 
-    public function __construct(RequestStack $requestStack, FilterChain $filterChain = null, EntityManager $em, FilterBuilderUpdater $queryBuilderUpdater, WidgetFormBuilder $widgetFormBuilder)
+    public function __construct(RequestStack $requestStack, array $filters = [], EntityManager $em, FilterBuilderUpdater $queryBuilderUpdater, WidgetFormBuilder $widgetFormBuilder)
     {
         $this->em = $em;
         $this->queryBuilderUpdater = $queryBuilderUpdater;
         $this->widgetFormBuilder = $widgetFormBuilder;
-        parent::__construct($requestStack, $filterChain);
+        parent::__construct($requestStack, $filters);
     }
 
     /**
@@ -69,8 +70,8 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
             ->addOrderBy('main_item.createdAt', 'DESC')
             ->andWhere('main_item.status = :status')
             ->orWhere('main_item.status = :scheduled_status AND main_item.publishedAt > :publicationDate')
-            ->setParameter('status', Article::PUBLISHED)
-            ->setParameter('scheduled_status', Article::SCHEDULED)
+            ->setParameter('status', PageStatus::PUBLISHED)
+            ->setParameter('scheduled_status', PageStatus::SCHEDULED)
             ->setParameter('publicationDate', new \DateTime());
 
         $adapter = new DoctrineORMAdapter($filterBuilder->getQuery());

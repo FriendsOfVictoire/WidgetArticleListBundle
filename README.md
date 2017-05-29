@@ -25,6 +25,7 @@ Do not forget to add the bundle in your AppKernel !
             $bundles = array(
                 ...
                 new Victoire\Widget\ArticleListBundle\VictoireWidgetArticleListBundle(),
+                new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
             );
 
             return $bundles;

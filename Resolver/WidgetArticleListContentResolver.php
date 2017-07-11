@@ -68,11 +68,10 @@ class WidgetArticleListContentResolver extends WidgetListingContentResolver
             ->leftJoin('main_item.blog', 'blog')
             ->addOrderBy('main_item.publishedAt', 'DESC')
             ->addOrderBy('main_item.createdAt', 'DESC')
-            ->andWhere('main_item.status = :status')
-            ->orWhere('main_item.status = :scheduled_status AND main_item.publishedAt > :publicationDate')
+            ->andWhere('main_item.status = :status OR (main_item.status = :scheduled_status AND main_item.publishedAt <= :now)')
             ->setParameter('status', PageStatus::PUBLISHED)
             ->setParameter('scheduled_status', PageStatus::SCHEDULED)
-            ->setParameter('publicationDate', new \DateTime());
+            ->setParameter('now', new \DateTime());
 
         $adapter = new DoctrineORMAdapter($filterBuilder->getQuery());
 

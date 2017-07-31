@@ -1,20 +1,20 @@
 services:
     victoire_core.widget_articlelist.content_resolver:
-        class: Victoire\Widget\ArticleListBundle\Resolver\WidgetArticleListContentResolver
+        class: 'Victoire\Widget\ArticleListBundle\Resolver\WidgetArticleListContentResolver'
         parent: victoire_core.widget_listing_content_resolver
         arguments:
-            - @doctrine.orm.entity_manager
-            - @lexik_form_filter.query_builder_updater
-            - @victoire_widget.widget_form_builder
+            - '@doctrine.orm.entity_manager'
+            - '@lexik_form_filter.query_builder_updater'
+            - '@victoire_widget.widget_form_builder'
         tags:
             - {name: victoire_widget.widget_content_resolver, alias: ArticleList }
 
     #alias to the entity
     victoire.widget.articlelist:
-        class: Victoire\Widget\ArticleListBundle\Entity\WidgetArticleList
+        class: 'Victoire\Widget\ArticleListBundle\Entity\WidgetArticleList'
     #alias to the form
     victoire.widget.form.articlelist:
-        class: Victoire\Widget\ArticleListBundle\Form\WidgetArticleListType
+        class: 'Victoire\Widget\ArticleListBundle\Form\WidgetArticleListType'
         tags:
             - { name: form.type }
 

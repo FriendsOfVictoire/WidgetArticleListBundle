@@ -34,7 +34,7 @@
         <source>widget.articlelist.new.action.label</source>
         <target>List articles</target>
       </trans-unit>
-      <trans-unit resname="modal.form.widget.type.articlelist.label">
+      <trans-unit id="5767fc8c6e5f65b3282fdf5bc0242e225b724e35" resname="modal.form.widget.type.articlelist.label">
         <source>modal.form.widget.type.articlelist.label</source>
         <target>List articles</target>
       </trans-unit>
